@@ -28,6 +28,10 @@ func main() {
 		http.StripPrefix("/static/",
 			http.FileServer(http.Dir("/home/endikaiglesias/static"))))
 
+	http.Handle("/img/",
+		http.StripPrefix("/img/",
+			http.FileServer(http.Dir("/home/endikaiglesias/img"))))
+
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		tmpl.Execute(w, data)
 	})
